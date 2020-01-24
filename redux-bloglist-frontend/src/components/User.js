@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { ListGroup } from 'react-bootstrap'
 
 function User(props) {
   if(!props.user){
@@ -7,15 +8,15 @@ function User(props) {
   }
   return (
     <div>
-      <h2>{props.user.name}</h2>
-      <h3>added blogs</h3>
-      <ul>
+      <h1>{props.user.name}</h1>
+      <h2>added blogs</h2>
+      <ListGroup >
         {props.user.blogs.map(blog =>
-              <li key={blog.id}>
+              <ListGroup.Item key={blog.id}>
                 {blog.title}
-              </li>
+              </ListGroup.Item>
             )}
-      </ul>
+      </ListGroup >
     </div>
   )
 }

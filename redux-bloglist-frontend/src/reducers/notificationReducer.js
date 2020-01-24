@@ -1,5 +1,5 @@
-export const nERROR = 'errorNotification'
-export const nOK = 'okNotification'
+export const nERROR = 'warning'
+export const nOK = 'success'
 
 const reducer = (state = {message:null, notificationClass: nERROR}, action) => {
   switch (action.type) {

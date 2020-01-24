@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { useField } from '../hooks'
 import { login } from '../reducers/loginReducer'
 import { setNotification, nERROR} from '../reducers/notificationReducer'
+import { Form, Button } from 'react-bootstrap'
 
 const Login = (props) => {
 
@@ -19,18 +20,16 @@ const Login = (props) => {
 
   return(
     <div>
-      <h2>log in to application</h2>
-      <form onSubmit={handleLogin} className='loginForm'>
-        <div>
-          username
-          <input name="Username" {...username.input}/>
-        </div>
-        <div>
-          password
-          <input name="Password"{...password.input}/>
-        </div>
-        <button type="submit">login</button>
-      </form>
+      <h1>log in to application</h1>
+      <Form onSubmit={handleLogin} className='loginForm'>
+        <Form.Group>
+          <Form.Label>username</Form.Label>
+          <Form.Control type="text" name="Username" {...username.input}/>
+          <Form.Label>password</Form.Label>
+          <Form.Control type="password" name="Password" {...password.input}/>
+          <Button type="submit">login</Button>
+        </Form.Group>
+      </Form>
     </div>
   )
 }

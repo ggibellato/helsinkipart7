@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 function Users(props) {
   if(props.users.lenght === 0){
@@ -8,8 +9,8 @@ function Users(props) {
   }
   return (
     <div>
-      <h2>users</h2>
-      <table>
+      <h1>users</h1>
+      <Table striped>
         <tbody>
           <tr>
             <th></th>
@@ -24,7 +25,7 @@ function Users(props) {
             </tr>
           )}
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }

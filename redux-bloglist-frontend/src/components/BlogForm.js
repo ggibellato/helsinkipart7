@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import  { useField } from '../hooks'
 import { newBlog } from '../reducers/blogReducer'
 import { setNotification, nERROR } from '../reducers/notificationReducer'
+import { Form, Button } from 'react-bootstrap'
 
 const BlogForm = (props) => {
   const title = useField('text')
@@ -20,30 +21,17 @@ const BlogForm = (props) => {
   return(
     <div>
       <h2>create new</h2>
-      <form onSubmit={submitCreate}>
-        <div>
-          title:
-          <input
-            name="title"
-            {...title.input}
-          />
-        </div>
-        <div>
-          author:
-          <input
-            name="author"
-            {...author.input}
-          />
-        </div>
-        <div>
-          url:
-          <input
-            name="url"
-            {...url.input}
-          />
-        </div>
-        <button type="submit">create</button>
-      </form>
+      <Form onSubmit={submitCreate}>
+        <Form.Group>
+          <Form.Label>title</Form.Label>
+          <Form.Control type="text" name="title"{...title.input}/>
+          <Form.Label>author</Form.Label>
+          <Form.Control type="text" name="author" {...author.input}/>
+          <Form.Label>url</Form.Label>
+          <Form.Control type="url" name="url" {...url.input}/>
+          <Button type="submit">create</Button>
+        </Form.Group>
+      </Form>
     </div>
   )
 }

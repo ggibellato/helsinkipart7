@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addLikeBlog } from '../reducers/blogReducer'
 import { setNotification, nERROR, nOK } from '../reducers/notificationReducer'
+import { Button } from 'react-bootstrap'
+import Comment from './Comment'
 
 function Blog(props) {
 
@@ -24,8 +26,10 @@ function Blog(props) {
     <div>
       <h2>{props.blog.title} {props.blog.author}</h2>
       {props.blog.url}<br />
-      {props.blog.likes} likes <button onClick={(event) => handleAddLikeClick(event, props.blog.id)}>like</button><br />
+      {props.blog.likes} likes <Button onClick={(event) => handleAddLikeClick(event, props.blog.id)}>like</Button><br />
       added by {props.blog.user.name}<br />
+      <h3>Comments</h3>
+      <Comment blogId={props.blog.id}/>
     </div>
   )
 }

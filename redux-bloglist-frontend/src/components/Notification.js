@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Alert } from 'react-bootstrap'
 
 const Notification = (props) => {
   if(props.notification.message) {
     return(
-      <div className={props.notification.notificationClass}>
-        {props.notification.message}
+      <div>
+        {(props.notification.message && <Alert variant={props.notification.notificationClass}>{props.notification.message}</Alert>)}      
       </div>
     )
   }
